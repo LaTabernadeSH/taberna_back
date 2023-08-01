@@ -4,18 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node build/index.js",
-    "tsc": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./index.js",
+    "start-server": "node ./index.js",
+    "test": "mocha -w ./tests/**/*.spec.js"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@types/express": "^4.17.17",
-    "typescript": "^5.1.6"
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=6.14.6"
   },
   "dependencies": {
-    "express": "4.18.2"
+    "cookie-parser": "1.4.6",
+    "dotenv": "16.3.1",
+    "express": "4.18.2",
+    "morgan": "1.10.0",
+    "pg": "8.11.2",
+    "sequelize": "6.32.1"
+  },
+  "devDependencies": {
+    "chai": "4.3.7",
+    "mocha": "10.2.0",
+    "nodemon": "3.0.1",
+    "supertest": "6.3.3",
+    "supertest-session": "5.0.1"
   }
 }
