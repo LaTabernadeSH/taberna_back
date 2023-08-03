@@ -55,3 +55,17 @@ Para verificar que versión tienes instalada:
     [nodemon] starting `node index.js`
     Server raised in PORT: 3001
    ```
+
+<br />
+
+## **💻 EXTENSIONES!!**
+
+1. **Code Spell Check** (ortografía)
+
+2. **Spanish - Code Spell Checker** (necesita pequeña configuración)
+
+3. **ESLint** (formato de código)
+
+4. **Error Lens** (ver los errores en el código)
+
+5. **Prettier** (se puede configurar para que al guardar formatee automáticamente siguiendo las reglas)

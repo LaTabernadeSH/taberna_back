@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "start": "nodemon ./index.js",
     "start-server": "node ./index.js",
     "test": "mocha -w ./tests/**/*.spec.js"
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "chai": "4.3.7",
+    "eslint": "^8.46.0",
     "mocha": "10.2.0",
     "nodemon": "3.0.1",
     "supertest": "6.3.3",
