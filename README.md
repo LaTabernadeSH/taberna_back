@@ -58,7 +58,13 @@ Para verificar que versión tienes instalada:
 
 <br />
 
-## **💻 EXTENSIONES!!**
+## **🔍 ENDPOINTS**
+
+En la ubicación **src\requests** encontrara archivos **`.rest`** con: el método, ruta y/o datos a enviar para las peticiones. Recomendamos instalar la extension **REST Client**. Esta habilitara un botón en cada archivo para realizar pruebas de petición rápidamente.
+
+<br />
+
+## **💻 EXTENSIONES PARA DESARROLLADORES!!**
 
 1. **Code Spell Check** (ortografía)
 
