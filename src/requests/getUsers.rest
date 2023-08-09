@@ -1,0 +1,2 @@
+### Obtener todos los usuarios
+GET http://localhost:3001/users
