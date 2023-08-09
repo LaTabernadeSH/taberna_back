@@ -31,5 +31,8 @@
     "nodemon": "3.0.1",
     "supertest": "6.3.3",
     "supertest-session": "5.0.1"
+  }, 
+  "prettier":{
+    "tabWidth": 2
   }
 }
