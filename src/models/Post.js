@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
         unique: true,
       },
       type: {
-        type: DataTypes.ENUM("POST", "BLOG"), // Definimos un ENUM con los valores permitidos
+        type: DataTypes.ENUM("POST", "BLOG"),
         allowNull: false,
       },
       title: {
