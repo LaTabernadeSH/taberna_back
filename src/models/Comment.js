@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         unique: true,
       },
-      comment: {
+      content: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
