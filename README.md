@@ -60,7 +60,8 @@ Para verificar que versión tienes instalada:
 
 ## **🔍 ENDPOINTS**
 
-En la ubicación **src\requests** encontrara archivos **`.rest`** con: el método, ruta y/o datos a enviar para las peticiones. Recomendamos instalar la extension **REST Client**. Esta habilitara un botón en cada archivo para realizar pruebas de petición rápidamente.
+En la ubicación **src\requests** encontrará archivos terminados en **`.rest`** con: el método, ruta y/o datos a enviar para las peticiones.
+Recomendamos instalar la extension **REST Client**. Esta habilitara un botón (Send Request) en dichos archivos para realizar pruebas de petición rápidamente.
 
 <br />
 
@@ -75,3 +76,21 @@ En la ubicación **src\requests** encontrara archivos **`.rest`** con: el métod
 4. **Error Lens** (ver los errores en el código)
 
 5. **Prettier** (se puede configurar para que al guardar formatee automáticamente siguiendo las reglas)
+
+<br />
+
+## **🔄 COMANDOS GIT**
+
+- **git remote update origin --prune** estando en main actualiza las ramas.
+
+- **git add .** agrega todos los archivos guardados para hacer commit.
+
+- **git commit -m 'mensaje'** realiza un nuevo commit con un mensaje.
+
+- **git commit --amend** modifica el ultimo commit (cambiar archivos y mensaje, en rama propia).
+
+- **git push** sube el commit a la nube.
+
+- **git push --force** sube el commit a la nube de manera forzosa para luego de hacer un amend (cuidado! solo en rama propia).
+
+- **git push --set-upstream origin nombreDeRama** crear nueva rama y pushear.
