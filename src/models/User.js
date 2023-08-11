@@ -8,23 +8,15 @@ module.exports = (sequelize) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-        allowNull: false,
-        auto_increment: true,
         unique: true,
-      },
-      name: {
-        type: DataTypes.STRING,
         allowNull: false,
       },
-      lastName: {
-        type: DataTypes.STRING,
+      admin: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
         allowNull: false,
       },
-      mail: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      userName: {
+      email: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -32,7 +24,40 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      userName: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      image: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      //contact
+      linkedin: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      github: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      twitter: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      whatsapp: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
     },
     { timestamps: false }
   );
-};
+  
