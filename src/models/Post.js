@@ -5,23 +5,23 @@ module.exports = (sequelize) => {
     "Post",
     {
       id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-        allowNull: false,
-        auto_increment: true,
         unique: true,
+        allowNull: false,
       },
       type: {
-        type: DataTypes.ENUM("POST", "BLOG"),
+        type: DataTypes.ENUM("BLOG", "FORO"),
         allowNull: false,
       },
       title: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      likes: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: true,
+      content: {
+        type: DataTypes.TEXT,
+        allowNull: false,
       },
     },
     { timestamps: true }
