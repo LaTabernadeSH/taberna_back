@@ -60,8 +60,14 @@ Para verificar que versión tienes instalada:
 
 ## **🔍 ENDPOINTS**
 
-En la ubicación **src\requests** encontrará archivos terminados en **`.rest`** con: el método, ruta y/o datos a enviar para las peticiones.
+En la ubicación **src/requests** encontrará archivos terminados en **`.rest`** con: el método, ruta y/o datos a enviar para las peticiones.
 Recomendamos instalar la extension **REST Client**. Esta habilitara un botón (Send Request) en dichos archivos para realizar pruebas de petición rápidamente.
+
+<br />
+
+## **🔍 DATABASE**
+
+En la ubicación **src/models/relations** encontrará un [README.md](/src/models/relations/README.md), con los valores de cada tabla y sus relaciones.
 
 <br />
 
