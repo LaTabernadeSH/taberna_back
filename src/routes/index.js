@@ -1,21 +1,20 @@
 const { Router } = require("express");
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
 
 const router = Router();
+// Importar todos los routers;
 const usersRouter = require("./handlers/users");
 const postsRouter = require("./handlers/posts");
+const notFound = require("./middleware/notFound");
+
+// Ruta principal
+router.get("/", (_req, res) => {
+  return res.status(200).send("<h1>Server is active!</h1>");
+});
 
 // Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
-
 router.use("/users", usersRouter);
 router.use("/posts", postsRouter);
 
-// Ruta por defecto
-router.get("/", (req, res) => {
-	const response = { message: "Server is active!" };
-	return res.status(200).json(response);
-});
+router.use(notFound);
 
 module.exports = router;
