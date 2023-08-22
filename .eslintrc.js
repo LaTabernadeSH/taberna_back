@@ -24,5 +24,6 @@ module.exports = {
     "no-trailing-spaces": "error",
     quotes: ["error", "double"],
     semi: ["error", "always"],
+    "no-unused-vars": "error",
   },
 };
