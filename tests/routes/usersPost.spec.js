@@ -15,14 +15,14 @@ describe("----- Route POST(/users): -----\n", () => {
   before(() => checkConnection());
 
   describe("-> Should respond error if data is missing:", () => {
-    it("Should respond with status 400 if email is missing", async () => {
+    it("Should respond with status 409 if email is missing", async () => {
       const res = await agent.post("/users").send({ password: user1.password });
-      expect(res.statusCode).to.equal(400);
+      expect(res.statusCode).to.equal(409);
     });
 
-    it("Should respond with status 400 if password is missing", async () => {
+    it("Should respond with status 409 if password is missing", async () => {
       const res = await agent.post("/users").send({ email: user1.email });
-      expect(res.statusCode).to.equal(400);
+      expect(res.statusCode).to.equal(409);
     });
   });
 
@@ -91,9 +91,9 @@ describe("----- Route POST(/users): -----\n", () => {
   });
 
   describe("-> Should reply error if the email already exists:", () => {
-    it("Should respond with status 400", async () => {
+    it("Should respond with status 409", async () => {
       const res = await agent.post("/users").send(user1);
-      expect(res.statusCode).to.equal(400);
+      expect(res.statusCode).to.equal(409);
     });
   });
 

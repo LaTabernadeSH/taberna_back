@@ -1,7 +1,7 @@
 const { User, conn } = require("../../../db");
 //const searchUser = require("./searchUser");
 
-const updateUser = async ({ id, email, password, name = null }) => {
+const updateUser = async ({ id, email = "", password = "", name = null }) => {
   const validatedData = control({
     name,
     email,
@@ -16,12 +16,17 @@ const updateUser = async ({ id, email, password, name = null }) => {
     if (id) {
       // Si llega id se actualiza el usuario
       user = await User.findByPk(id, { transaction });
-      if (!user) throw new Error(`User with id: ${id} not found.`);
+      if (!user)
+        throw Object.assign(new Error(`User with id: ${id} not found.`), {
+          status: 404,
+        });
       await user.update(validatedData, { transaction });
     } else {
       // Si no llega id se crea el usuario
       if (await User.findOne({ where: { email: email } }))
-        throw new Error("User email already exists.");
+        throw Object.assign(new Error("User email already exists."), {
+          name: "ValidationError",
+        });
       user = await User.create(validatedData, { transaction });
     }
     // Agrega relaciones
@@ -42,10 +47,25 @@ const control = (data) => {
   //const regexURL = /^(https?:\/\/)?[\w\-]+(\.[\w\-]+)+[/#?]?.*$/;
 
   if (!regexName.test(data.name)) {
-    throw new Error("The name of the user cannot contain special characters.");
+    throw Object.assign(
+      new Error("The name of the user cannot contain special characters."),
+      {
+        name: "ValidationError",
+      }
+    );
   }
   if (!regexEmail.test(data.email)) {
-    throw new Error("The email of the user must be a valid email.");
+    throw Object.assign(
+      new Error("The email of the user must be a valid email."),
+      {
+        name: "ValidationError",
+      }
+    );
+  }
+  if (!regexName.test(data.password)) {
+    throw Object.assign(new Error("The password missing or invalid."), {
+      name: "ValidationError",
+    });
   }
   return data;
 };

@@ -5,6 +5,7 @@ const router = Router();
 const usersRouter = require("./handlers/users");
 const postsRouter = require("./handlers/posts");
 const notFound = require("./middleware/notFound");
+const handleErrors = require("./middleware/handleErrors.js");
 
 // Ruta principal
 router.get("/", (_req, res) => {
@@ -16,5 +17,6 @@ router.use("/users", usersRouter);
 router.use("/posts", postsRouter);
 
 router.use(notFound);
+router.use(handleErrors);
 
 module.exports = router;

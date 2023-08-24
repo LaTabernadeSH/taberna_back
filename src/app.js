@@ -28,13 +28,4 @@ server.use((_req, res, next) => {
 
 server.use("/", routes);
 
-// Error catching endways.
-// eslint-disable-next-line no-unused-vars
-server.use((err, req, res, next) => {
-  const status = err.status || 500;
-  const message = err.message || err;
-  console.error(err);
-  res.status(status).send(message).end();
-});
-
 module.exports = server;
