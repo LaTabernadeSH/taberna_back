@@ -1,6 +1,7 @@
-const { User, conn } = require("../../src/db.js");
+const { User } = require("../../src/db.js");
 const { expect } = require("chai");
-const { Op } = require("sequelize");
+
+const { checkConnection, deleteTestData } = require("../helpers.js");
 
 describe("----- Model User: -----\n", () => {
   before(() => checkConnection());
@@ -35,16 +36,5 @@ describe("----- Model User: -----\n", () => {
     });
   });
 
-  after(async () => deleteTestData());
+  after(async () => deleteTestData([User]));
 });
-
-const checkConnection = () => {
-  conn.authenticate().catch((err) => {
-    console.error("Unable to connect to the database:", err);
-  });
-};
-
-const deleteTestData = async () => {
-  // Elimina cualquier dato existente creado con palabra clave 'Test'
-  await User.destroy({ where: { email: { [Op.like]: "%Test%" } } });
-};

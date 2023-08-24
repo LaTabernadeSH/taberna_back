@@ -1,4 +1,4 @@
-const { conn } = require("../../src/db.js");
+const { conn } = require("../src/db.js");
 const { Op } = require("sequelize");
 
 const checkConnection = () => {

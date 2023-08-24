@@ -4,7 +4,7 @@ const app = require("../../src/app.js");
 const agent = session(app);
 const { expect } = require("chai");
 
-const { checkConnection, deleteTestData } = require("./helpers.js");
+const { checkConnection, deleteTestData } = require("../helpers.js");
 
 const user1 = {
   email: "Test1@mail.com",
