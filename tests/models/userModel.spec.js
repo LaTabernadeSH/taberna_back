@@ -2,11 +2,12 @@ const { User, conn } = require("../../src/db.js");
 const { expect } = require("chai");
 const { Op } = require("sequelize");
 
-describe("----- User model: -----", () => {
+describe("----- Model User: -----\n", () => {
   before(() => checkConnection());
 
-  describe("\n    - Attributes definition", () => {
-    it("Should have the following attributes: id, admin, email, password, name, lastName, userName, password, linkedin, github, twitter, whatsapp", () => {
+  describe("-> Attributes definition", () => {
+    it(`Should have the following attributes:
+        id, admin, email, password, name, lastName, userName, password, linkedin, github, twitter, whatsapp`, () => {
       expect(User.tableAttributes).to.have.property("id");
       expect(User.tableAttributes).to.have.property("admin");
       expect(User.tableAttributes).to.have.property("email");
@@ -21,7 +22,8 @@ describe("----- User model: -----", () => {
       expect(User.tableAttributes).to.have.property("whatsapp");
     });
 
-    it("Should have a false enableNull constraint on the attributes: id, admin, email, password", () => {
+    it(`Should have a false enableNull constraint on the attributes:
+        id, admin, email, password`, () => {
       expect(User.tableAttributes.id.allowNull).to.be.false;
       expect(User.tableAttributes.admin.allowNull).to.be.false;
       expect(User.tableAttributes.email.allowNull).to.be.false;
