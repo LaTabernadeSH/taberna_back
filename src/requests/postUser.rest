@@ -1,7 +1,9 @@
 ### Postear nuevo usuario
+### Cualquier propiedad distinta a email y password sera ignorado 
 POST http://localhost:3001/users
 Content-Type: application/json
 
 {
-  "name": "ejemplo"
+  "email": "prueba@mail.com",
+  "password": "abc123"
 }
