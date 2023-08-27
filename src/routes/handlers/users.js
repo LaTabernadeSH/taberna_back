@@ -24,20 +24,20 @@ users.get("/", async (req, res, next) => {
   }
 });
 
-users.post("/", async (req, res, next) => {
+users.post("/login", async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    const newUser = await createUser({ email, password });
+    const newUser = await loginUser({ email, password });
     return res.status(201).json(newUser).end();
   } catch (error) {
     next(error);
   }
 });
 
-users.post("/login", async (req, res, next) => {
+users.post("/", async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    const newUser = await loginUser({ email, password });
+    const newUser = await createUser({ email, password });
     return res.status(201).json(newUser).end();
   } catch (error) {
     next(error);
