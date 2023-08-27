@@ -8,7 +8,7 @@ const loginUser = async ({ email = "", password = "" }) => {
   const passwordCorrect =
     user === null ? false : await bcrypt.compare(password, user.password);
 
-  if (!(user && passwordCorrect)) {
+  if (!user || !passwordCorrect) {
     throw Object.assign(new Error("Invalid user or password."), {
       name: "ValidationError",
     });
@@ -20,7 +20,7 @@ const loginUser = async ({ email = "", password = "" }) => {
   };
 
   const token = jwt.sign(userForToken, process.env.SECRET_TOKEN, {
-    expiresIn: 60 * 60 * 24 * 7,
+    expiresIn: 60 * 60 * 24 * 7, //Tiempo de expiración en seg
   });
 
   return {
@@ -29,3 +29,6 @@ const loginUser = async ({ email = "", password = "" }) => {
   };
 };
 module.exports = loginUser;
+
+// Lectura de interés:
+// https://developer.mozilla.org/es/docs/Web/HTTP/Authentication
