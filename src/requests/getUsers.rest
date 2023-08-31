@@ -1,2 +1,4 @@
 ### Obtener todos los usuarios
 GET http://localhost:3001/users
+Content-Type: application/json
+Authorization: Bearer colocarAquiElTokenCorrespondiente

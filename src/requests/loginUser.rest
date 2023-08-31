@@ -1,0 +1,9 @@
+### Logearse
+### Cualquier propiedad distinta a email y password sera ignorado 
+POST http://localhost:3001/users/login
+Content-Type: application/json
+
+{
+  "email": "prueba@mail.com",
+  "password": "abc123"
+}

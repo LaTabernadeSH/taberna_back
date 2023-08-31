@@ -43,6 +43,7 @@ Para verificar que versión tienes instalada:
     DB_USER=usuarioDePostgres
     DB_PASSWORD=passwordDePostgres
     DB_HOST=localhost:5432
+    SECRET_TOKEN=semillaParaGeneradorDeToken
    ```
 
 4. Reemplazar **`usuarioDePostgres`** y **`passwordDePostgres`** con tus propias credenciales para conectarte a Postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
@@ -60,14 +61,22 @@ Para verificar que versión tienes instalada:
 
 ## **🔍 ENDPOINTS**
 
-En la ubicación **src/requests** encontrará archivos terminados en **`.rest`** con: el método, ruta y/o datos a enviar para las peticiones.
+En la ubicación **/src/requests** encontrará archivos terminados en **`.rest`** con: el método, ruta y/o datos a enviar para las peticiones.
 Recomendamos instalar la extension **REST Client**. Esta habilitara un botón (Send Request) en dichos archivos para realizar pruebas de petición rápidamente.
 
 <br />
 
 ## **🔍 DATABASE**
 
-En la ubicación **src/models/relations** encontrará un [README.md](/src/models/relations/README.md), con los valores de cada tabla y sus relaciones.
+En la ubicación **/src/models/relations** encontrará un [README.md](/src/models/relations/README.md), con los valores de cada tabla y sus relaciones.
+
+<br />
+
+## **🕵️ TESTING**
+
+Para correr los tests ejecute el comando **`npm test`** en la terminal.
+En la ubicación **/test** encontrará archivos terminados en **`.spec.js`**.
+Al crear nuevos test asegúrese que el nombre del archivo tenga dicha terminación para ser reconocido como test.
 
 <br />
 
