@@ -11,6 +11,13 @@ const ERROR_HANDLERS = {
     res.status(401).json({ error: "token expired" }).end();
   },
 
+  BadRequest: (res, err) => {
+    res
+      .status(400)
+      .json({ error: `Missing required data: ${err.message}` })
+      .end();
+  },
+
   SequelizeDatabaseError: (res, err) => {
     res.status(409).json({ error: err.message }).end();
   },
@@ -22,7 +29,7 @@ const ERROR_HANDLERS = {
   defaultError: (res, err) => {
     const status = err.status || 500;
     const message = { error: err.message } || err;
-    //console.error(err);
+    //console.error(err.stack);
     res.status(status).json(message).end();
   },
 };

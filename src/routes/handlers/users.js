@@ -1,7 +1,8 @@
 const users = require("express").Router();
 
+const createUser = require("../controllers/users/createUser");
 const searchUser = require("../controllers/users/searchUser");
-const updateUser = require("../controllers/users/updateUser");
+//const updateUser = require("../controllers/users/updateUser");
 
 users.get("/:id", async (req, res, next) => {
   try {
@@ -22,10 +23,20 @@ users.get("/", async (req, res, next) => {
   }
 });
 
+users.post("/login", async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+    const newUser = await loginUser({ email, password });
+    return res.status(201).json(newUser).end();
+  } catch (error) {
+    next(error);
+  }
+});
+
 users.post("/", async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    const newUser = await updateUser({ email, password });
+    const newUser = await createUser({ email, password });
     return res.status(201).json(newUser).end();
   } catch (error) {
     next(error);
@@ -51,4 +62,3 @@ users.delete("/", async (req, res, next) => {
 });
 
 module.exports = users;
-
