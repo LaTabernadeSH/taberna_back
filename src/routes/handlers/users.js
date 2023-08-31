@@ -1,6 +1,7 @@
 const users = require("express").Router();
 
 const createUser = require("../controllers/users/createUser");
+const loginUser = require("../controllers/users/loginUser");
 const searchUser = require("../controllers/users/searchUser");
 //const updateUser = require("../controllers/users/updateUser");
 
