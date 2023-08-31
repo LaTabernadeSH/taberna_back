@@ -4,6 +4,7 @@ const createUser = require("../controllers/users/createUser");
 const loginUser = require("../controllers/users/loginUser");
 const searchUser = require("../controllers/users/searchUser");
 //const updateUser = require("../controllers/users/updateUser");
+const userExtractor = require("../middleware/userExtractor");
 
 users.get("/:id", async (req, res, next) => {
   try {
@@ -15,7 +16,7 @@ users.get("/:id", async (req, res, next) => {
   }
 });
 
-users.get("/", async (req, res, next) => {
+users.get("/", userExtractor, async (req, res, next) => {
   try {
     const users = await searchUser({});
     return res.status(200).json(users).end();

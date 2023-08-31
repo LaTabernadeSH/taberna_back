@@ -1,14 +1,14 @@
 const ERROR_HANDLERS = {
   CastError: (res) => {
-    res.status(400).json({ error: "id used is malformed" }).end();
+    res.status(400).json({ error: "Id used is malformed" }).end();
   },
 
   JsonWebTokenError: (res) => {
-    res.status(401).json({ error: "token missing or invalid" }).end();
+    res.status(401).json({ error: "Token missing or invalid" }).end();
   },
 
   TokenExpirerError: (res) => {
-    res.status(401).json({ error: "token expired" }).end();
+    res.status(401).json({ error: "Token expired" }).end();
   },
 
   BadRequest: (res, err) => {
