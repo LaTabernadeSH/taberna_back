@@ -64,11 +64,14 @@ User.hasMany(Post)
 Post.belongsTo(User)
 
 //? Project a Tech
-Project.belongsToMany(Tech,{ through: "techs"})
+// muchos a muchos
+Project.belongsToMany(Tech,{ through: "Project_techs"})
+Tech.belongsToMany(Project,{ through: "Project_techs"})
 
-//? project a Favorite
-Project.belongsTo(Favorite)
-
+//? User and favotites
+// muchos a muchos
+User.belongsToMany(Project,{ through: "Favorite"})
+Project.belongsToMany(User,{ through: "Favorite"})
 
 module.exports = {
 	...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
