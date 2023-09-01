@@ -39,4 +39,3 @@ module.exports = (err, req, res, next) => {
   const handler = ERROR_HANDLERS[err.name] || ERROR_HANDLERS.defaultError;
   handler(res, err);
 };
-

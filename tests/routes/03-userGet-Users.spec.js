@@ -45,8 +45,8 @@ describe("----- Route GET(/users): -----\n", () => {
       expect(res.status).to.equal(201, "Unexpected status code");
       expect(res.body).to.be.an("object");
     });
-
-    it("Should respond with the 201 status", async () => {
+    
+    it("Should respond with the 201 status if the token is correct", async () => {
       const res1 = await agent
         .get("/users")
         .set("Authorization", `Bearer ${res.body.token}`);
