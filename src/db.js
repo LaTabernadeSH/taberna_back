@@ -55,6 +55,23 @@ const { User, Post, Project, Comment, Tech, Favorite, } = sequelize.models;
 User.hasMany(Project)
 Project.belongsTo(User)
 
+//? relation user, projec to get likes
+
+User.belongsToMany(Project,{
+	through: Like,
+	as: 'LikedProjects',
+	foreignKey: 'UserId',
+})
+
+Project.belongsToMany(User,{
+	through: Like,
+	as: 'LikedByUsers',
+	foreignKey: 'ProjectId',
+})
+
+Like.belongsTo(User, { foreignKey: 'UserId' });
+Like.belongsTo(Project, { foreignKey: 'ProjectId' });
+
 //? user a comment
 User.hasMany(Comment)
 Comment.belongsTo(User)
